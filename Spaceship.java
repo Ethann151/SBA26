@@ -7,6 +7,7 @@ public class Spaceship extends BasicSpaceship {
     public int i = 1;
     public int worldWidth;
     public int worldHeight;
+    public int harperKills;
     public Point midpoint;
     public boolean killHarper = false;
     public boolean harperKilled = false;
@@ -29,7 +30,7 @@ public class Spaceship extends BasicSpaceship {
     {
         BasicGameInfo gameInfo = env.getGameInfo();
         ObjectStatus ship = env.getShipStatus();
-        System.out.println(ship.getOrientation());
+        //System.out.println(ship.getOrientation());
         
         if(i == 0) {
            i++;
@@ -48,13 +49,13 @@ public class Spaceship extends BasicSpaceship {
         else if(i == 2) {
            i++;
            java.util.List<ObjectStatus> results = env.getRadar();
-           System.out.print("Radar results [ ");
+           //System.out.print("Radar results [ ");
            if(results != null) {
               for(int i = 0; i < results.size(); i++) {
-                 System.out.print(results.get(i)+" ");
+                 //System.out.print(results.get(i)+" ");
                  if(results.get(i).getName() != null && ((results.get(i).getName().toLowerCase().contains("c") && results.get(i).getName().toLowerCase().contains("h") && results.get(i).getName().toLowerCase().contains("u") && results.get(i).getName().toLowerCase().contains("d")) || results.get(i).getName().toLowerCase().contains("destroyer") )) {
                     this.midpoint = results.get(i).getPosition();
-                    System.out.println("]\nHarper found, aiming...");
+                    System.out.println("Harper found, aiming...");
                     //Target harpers id
                     System.out.println("ID: "+results.get(i).toString().substring(results.get(i).toString().substring(results.get(i).toString().indexOf("MASS")).indexOf("ID=")+results.get(i).toString().indexOf("MASS"), results.get(i).toString().substring(results.get(i).toString().indexOf("MASS")).indexOf(", MAXENERGY")+results.get(i).toString().indexOf("MASS")));
                     killHarper = true;
@@ -67,10 +68,12 @@ public class Spaceship extends BasicSpaceship {
                  }
               }
            }
-        System.out.print("]\n");
+        //System.out.print("\n");
         if(harperKilled) {
-           System.out.println("\nHarper suppressed.\n");
+           System.out.println("Harper suppressed.");
            harperKilled = false;
+           harperKills++;
+           System.out.println("[ Harper kills: "+harperKills+" ]");
         }
         return new ThrustCommand('B', 1, 1);
         }
