@@ -51,7 +51,7 @@ public class Spaceship extends BasicSpaceship {
            if(results != null) {
               for(int i = 0; i < results.size(); i++) {
                  System.out.print(results.get(i)+" ");
-                 if(results.get(i).getName() != null && ((results.get(i).getName().toLowerCase().contains("c") && results.get(i).getName().toLowerCase().contains("h") && results.get(i).getName().toLowerCase().contains("u") && results.get(i).getName().toLowerCase().contains("d")) || results.get(i).getName().toLowerCase().contains("destroyer"))) {
+                 if(results.get(i).getName() != null && ((results.get(i).getName().toLowerCase().contains("c") && results.get(i).getName().toLowerCase().contains("h") && results.get(i).getName().toLowerCase().contains("u") && results.get(i).getName().toLowerCase().contains("d")) || results.get(i).getName().toLowerCase().contains("destroyer") )) {
                     this.midpoint = results.get(i).getPosition();
                     System.out.println("]\nHarper found, aiming...");
                     //Target harpers id
