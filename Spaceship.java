@@ -55,7 +55,7 @@ public class Spaceship extends BasicSpaceship {
                     this.midpoint = results.get(i).getPosition();
                     System.out.println("]\nHarper found, aiming...");
                     //Target harpers id
-                    System.out.println("ID: "+results.get(i).toString().substring(results.get(i).toString().substring(results.get(i).toString().indexOf("MASS")).indexOf("ID="), results.get(i).toString().substring(results.get(i).toString().indexOf("MASS")).indexOf(", MAXENERGY")));
+                    System.out.println("ID: "+results.get(i).toString().substring(results.get(i).toString().substring(results.get(i).toString().indexOf("MASS")).indexOf("ID=")+results.get(i).toString().indexOf("MASS"), results.get(i).toString().substring(results.get(i).toString().indexOf("MASS")).indexOf(", MAXENERGY")+results.get(i).toString().indexOf("MASS")));
                     killHarper = true;
                     if(ship.getPosition().getAngleTo(this.midpoint) - ship.getOrientation() > 180) {
                        return new RotateCommand(ship.getPosition().getAngleTo(this.midpoint) - ship.getOrientation() -360);
