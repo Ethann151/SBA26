@@ -9,6 +9,7 @@ public class Spaceship extends BasicSpaceship {
     public int worldHeight;
     public Point midpoint;
     public boolean killHarper = false;
+    public boolean harperKilled = false;
     public static void main(String[] args)
     {
         TextClient.run("10.56.98.121", new Spaceship());
@@ -57,6 +58,7 @@ public class Spaceship extends BasicSpaceship {
                     //Target harpers id
                     System.out.println("ID: "+results.get(i).toString().substring(results.get(i).toString().substring(results.get(i).toString().indexOf("MASS")).indexOf("ID=")+results.get(i).toString().indexOf("MASS"), results.get(i).toString().substring(results.get(i).toString().indexOf("MASS")).indexOf(", MAXENERGY")+results.get(i).toString().indexOf("MASS")));
                     killHarper = true;
+                    harperKilled = true;
                     if(ship.getPosition().getAngleTo(this.midpoint) - ship.getOrientation() > 180) {
                        return new RotateCommand(ship.getPosition().getAngleTo(this.midpoint) - ship.getOrientation() -360);
                     } else {
@@ -66,6 +68,10 @@ public class Spaceship extends BasicSpaceship {
               }
            }
         System.out.print("]\n");
+        if(harperKilled) {
+           System.out.println("\nHarper suppressed.\n");
+           harperKilled = false;
+        }
         return new ThrustCommand('B', 1, 1);
         }
         else if((i < 6) && killHarper) {
