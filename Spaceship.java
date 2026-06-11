@@ -1,5 +1,5 @@
 import java.awt.Color;
-
+import java.util.*;
 import ihs.apcs.spacebattle.*;
 import ihs.apcs.spacebattle.commands.*;
 
@@ -30,7 +30,6 @@ public class Spaceship extends BasicSpaceship {
     {
         BasicGameInfo gameInfo = env.getGameInfo();
         ObjectStatus ship = env.getShipStatus();
-        //System.out.println(ship.getOrientation());
         
         if(i == 0) {
            i++;
@@ -53,7 +52,14 @@ public class Spaceship extends BasicSpaceship {
            if(results != null) {
               for(int i = 0; i < results.size(); i++) {
                  //System.out.print(results.get(i)+" ");
-                 if(results.get(i).getName() != null && ((results.get(i).getName().toLowerCase().contains("c") && results.get(i).getName().toLowerCase().contains("h") && results.get(i).getName().toLowerCase().contains("u") && results.get(i).getName().toLowerCase().contains("d")) || results.get(i).getName().toLowerCase().contains("destroyer") )) {
+                 
+                 if(results.get(i).getName() != null && (
+                 (results.get(i).getName().toLowerCase().contains("c") && results.get(i).getName().toLowerCase().contains("h") && results.get(i).getName().toLowerCase().contains("u") && results.get(i).getName().toLowerCase().contains("d"))
+                  || (results.get(i).getName().toLowerCase().contains("t") && results.get(i).getName().toLowerCase().contains("i") && results.get(i).getName().toLowerCase().contains("k") && results.get(i).getName().toLowerCase().contains("i"))
+                  || results.get(i).getName().toLowerCase().contains("destroyer")
+                  
+                  )) {
+                  
                     this.midpoint = results.get(i).getPosition();
                     System.out.println("Harper found, aiming...");
                     //Target harpers id
