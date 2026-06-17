@@ -53,12 +53,13 @@ public class Spaceship extends BasicSpaceship {
               for(int i = 0; i < results.size(); i++) {
                  //System.out.print(results.get(i)+" ");
                  
-                 if(results.get(i).getName() != null && (
-                 (results.get(i).getName().toLowerCase().contains("c") && results.get(i).getName().toLowerCase().contains("h") && results.get(i).getName().toLowerCase().contains("u") && results.get(i).getName().toLowerCase().contains("d"))
-                  || (results.get(i).getName().toLowerCase().contains("t") && results.get(i).getName().toLowerCase().contains("i") && results.get(i).getName().toLowerCase().contains("k") && results.get(i).getName().toLowerCase().contains("i"))
-                  || results.get(i).getName().toLowerCase().contains("destroyer")
+                 if(results.get(i).getName() != null// && (
+                 //(results.get(i).getName().toLowerCase().contains("c") && results.get(i).getName().toLowerCase().contains("h") && results.get(i).getName().toLowerCase().contains("u") && results.get(i).getName().toLowerCase().contains("d"))
+                 // || (results.get(i).getName().toLowerCase().contains("t") && results.get(i).getName().toLowerCase().contains("i") && results.get(i).getName().toLowerCase().contains("k") && results.get(i).getName().toLowerCase().contains("i"))
+                  //|| results.get(i).getName().toLowerCase().contains("destroyer")
                   
-                  )) {
+                  //)
+                  ) {
                   
                     this.midpoint = results.get(i).getPosition();
                     System.out.println("Harper found, aiming...");
